@@ -6,8 +6,6 @@
 # 5. The winner of the election based on popular vote
 
 
-
-
 import csv
 import os
 # Assign a variable to load a file from a path.
@@ -17,7 +15,7 @@ file_to_save = os.path.join("analysis", "election_analysis.txt")
 
 #Initialize a total vote counter
 total_votes = 0
-#declare empty list 
+#declare empty list
 # Candidate options and candidate votes list
 candidate_options = []
 # Declare the empty dictionary for candidate and votes
@@ -53,6 +51,19 @@ with open(file_to_load) as election_data:
         # Add a vote to that candidate's count.
         candidate_votes[candidate_name] += 1
 
+# Save the results to our text file.
+with open(file_to_save, "w") as txt_file:
+
+    # Print the final vote count to the terminal.
+    election_results = (
+        f"\nElection Results\n"
+        f"-------------------------\n"
+        f"Total Votes: {total_votes:,}\n"
+        f"-------------------------\n")
+    print(election_results, end="")
+    # Save the final vote count to the text file.
+    txt_file.write(election_results)
+
     # Determine the percentage of votes for each candidate by looping through the counts.
 # 1. Iterate through the candidate list.
     for candidate_name in candidate_votes:
@@ -74,7 +85,11 @@ with open(file_to_load) as election_data:
             winning_candidate = candidate_name
 # To do: print out each candidate's name, vote count, and percentage of
 # votes to the terminal.
-        print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+        candidate_results = (f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+        # Print each candidate, their voter count, and percentage to the terminal.
+        print(candidate_results)
+        #  Save the candidate results to our text file.
+        txt_file.write(candidate_results)
 
         #Final Output with Formatting
         winning_candidate_summary = (
@@ -83,7 +98,5 @@ with open(file_to_load) as election_data:
             f"Winning Vote Count: {winning_count:,}\n"
             f"Winning Percentage: {winning_percentage:.1f}%\n"
             f"-------------------------\n")
-print(winning_candidate_summary)
-       
-
-  
+# Save the winning candidate's name to the text file.
+    txt_file.write(winning_candidate_summary)
