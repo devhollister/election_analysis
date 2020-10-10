@@ -25,7 +25,7 @@ The results of the anaylsis were as follows:
 
 The code used to provide this data was written in the Python coding language edited using Visual Studio Code. As seen below, the script first loads the .csv file election_results, writes the output to a .txt file and defines the variables used later in the script. Then, the script reads the .csv file, skipping the header row.
 
-`# Add our dependencies.
+```# Add our dependencies.
 import csv
 import os
 
@@ -60,7 +60,7 @@ with open(file_to_load) as election_data:
     reader = csv.reader(election_data)
 # Read the header
     header = next(reader)
-`
+```
 After all variables were defined, the first thing the script does is create for loop that loops through all rows of data in the original .csv data sheet. A counter was then defined that determines the total number of votes. Next, the candidate names were retrieved using their index in the worksheet and a decision statement was used to build a list of the candidates voted for. Every time a candidate's name appeared, a vote was added in a dictionary that contains the candidates name and corresponding votes. This process was then repeated to build a dictionary of counties and their corresponding votes. 
 
     # For each row in the CSV file.
