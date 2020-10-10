@@ -23,7 +23,45 @@ The results of the anaylsis were as follows:
 
 ### Code Breakdown:
 
-The code used to provide this data was written in the Python coding language edited using Visual Studio Code. After all variables were defined, the first thing the script does is create for loop that loops throigh all rows of data in the original CSV data sheet. A counter was then defined that determines the total number of votes. Next, the candidate names were retrieved using their index in the worksheet and a decision statement was used to build a list of the candidates voted for. Every time a candidate's name appeared, a vote was added in a dictionary that contains the candidates name and corresponding votes. This process was then repeated to build a dictionary of counties and their corresponding votes. 
+The code used to provide this data was written in the Python coding language edited using Visual Studio Code. As seen below, the script first loads the .csv file election_results, writes the output to a .txt file and defines the variables used later in the script. Then, the script reads the .csv file, skipping the header row.
+
+`# Add our dependencies.
+import csv
+import os
+
+# Assign a variable to load a file from a path.
+file_to_load = os.path.join("Resources", "election_results.csv")
+# Assign a variable to save the file to a path.
+file_to_save = os.path.join("analysis", "election_results.txt")
+
+# Initialize a total vote counter.
+total_votes = 0
+
+# Candidate Options and candidate votes.
+candidate_options = []
+candidate_votes = {}
+
+# 1: Create a county list and county votes dictionary.
+county_options = []
+county_votes = {}
+
+# Track the winning candidate, vote count and percentage
+winning_candidate = ""
+winning_count = 0
+winning_percentage = 0
+
+# 2: Track the largest county and county voter turnout.
+county_with_largest_turnout = ""
+largest_county_turnout = 0
+largest_vote_percentage_by_county = 0
+
+# Read the csv and convert it into a list of dictionaries
+with open(file_to_load) as election_data:
+    reader = csv.reader(election_data)
+# Read the header
+    header = next(reader)
+`
+After all variables were defined, the first thing the script does is create for loop that loops through all rows of data in the original .csv data sheet. A counter was then defined that determines the total number of votes. Next, the candidate names were retrieved using their index in the worksheet and a decision statement was used to build a list of the candidates voted for. Every time a candidate's name appeared, a vote was added in a dictionary that contains the candidates name and corresponding votes. This process was then repeated to build a dictionary of counties and their corresponding votes. 
 
     # For each row in the CSV file.
     for row in reader:
@@ -114,4 +152,4 @@ This process was then repeated to find analyze the votes by candidate and determ
 
 ## Election-Audit Summary:
 
-In conclusion, the script was an efficient and logical way to determine that provide a business proposal to the election commission on how this script can be used—with some modifications—for any election. Give at least two examples of how this script can be modified to be used for other elections.
+In conclusion, the script was an efficient and logical way to determine that Diana DeGette won the election with 272,892 votes and that Denver County had the largest voter turnout (306,055 votes). With a few modifications, this script can be used to anaylize the results of any election, as the list of candidates and the voting districts are built by the script itself while reading the data sheet supplied to it. For exmaple, for a mayoral election the script would only have to change from referencing county data to referencing city voting districts. Furthermore, the script can be scaled up by adding more identical decision statements within the code. In a nationwide election, for example, in addition to having county data, another decision statement could be added to build a dictionary of the number of votes for each state. The operational power of Python also makes any number of analysis possible, for example, finding the two candidates with the most votes, as happens in a primary race, would be accomplished simply by altering the final decision statement at the end of the script. 
