@@ -1,15 +1,14 @@
-# election_analysis
+# Election Analysis
 
 ## Overview of Election Audit: 
-Explain the purpose of this election audit analysis.
+
+The following is an audit of election data taken from a U.S. congressional district during a recent congressional election performed with the intention of certifying the results of the election. The district is comprised of three counties: Arapahoe, Jefferson, and Denver, and a total of three candidates, Charles Casper Stockham, Diana DeGette, and Raymon Anthony Doane, ran in the election. The total number of votes cast, a breakdown of votes for each of the three candidates, a determination of the winning candidate, and a breakdown of votes by county (including the county with the largest vote turnout) were determined in the analysis. The analysis was performed using the Python programming language in order to allow the auditing process to become automated and easily applied to future elections, congressional and beyond. 
 
 ### Election-Audit Results:
 
-Using a bulleted list, address the following election outcomes. Use images or examples of your code as support where necessary.
+The results of the anaylsis were as follows:
 
-How many votes were cast in this congressional election? 
-
-369,711
+* The total number of votes cast in this congressional election was 369,711.
 
 Provide a breakdown of the number of votes and the percentage of total votes for each county in the precinct.
 
