@@ -91,16 +91,21 @@ with open(file_to_save, "w") as txt_file:
 
     # 6a: Write a repetition statement to get the county from the county dictionary.
     for county_name in county_votes:
+
         # 6b: Retrieve the county vote count.
         votes_by_county = county_votes.get(county_name)
+
         # 6c: Calculate the percent of total votes for the county.
         vote_percentage_by_county = float(votes_by_county) / float(total_votes) * 100
         county_results = (
             f"{county_name}: {vote_percentage_by_county:.1f}% ({votes_by_county:,})\n")
+
          # 6d: Print the county results to the terminal.
         print(county_results)
+
          # 6e: Save the county votes to a text file.
         txt_file.write(county_results)
+
          # 6f: Write a decision statement to determine the winning county and get its vote count.
         if (votes_by_county > largest_county_turnout) and (vote_percentage_by_county > largest_vote_percentage_by_county):
             largest_county_turnout = votes_by_county
@@ -113,6 +118,7 @@ with open(file_to_save, "w") as txt_file:
         f"Largest County Turnout: {county_with_largest_turnout}\n"
         f"-------------------------\n")
     print(largest_turnout_summary)
+
     # 8: Save the county with the largest turnout to a text file.
     txt_file.write(largest_turnout_summary)
 
@@ -128,6 +134,7 @@ with open(file_to_save, "w") as txt_file:
         # Print each candidate's voter count and percentage to the
         # terminal.
         print(candidate_results)
+
         #  Save the candidate results to our text file.
         txt_file.write(candidate_results)
 
@@ -145,5 +152,6 @@ with open(file_to_save, "w") as txt_file:
         f"Winning Percentage: {winning_percentage:.1f}%\n"
         f"-------------------------\n")
     print(winning_candidate_summary)
+    
     # Save the winning candidate's name to the text file
     txt_file.write(winning_candidate_summary)
