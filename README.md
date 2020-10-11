@@ -4,7 +4,8 @@
 
 The following is an audit of election data taken from a U.S. congressional district during a recent congressional election performed with the intention of certifying the results of the election. The district is comprised of three counties: Arapahoe, Jefferson, and Denver, and a total of three candidates, Charles Casper Stockham, Diana DeGette, and Raymon Anthony Doane, ran in the election. The total number of votes cast, a breakdown of votes for each of the three candidates, a determination of the winning candidate, and a breakdown of votes by county (including the county with the largest vote turnout) were determined in the analysis. The analysis was performed using the Python programming language in order to allow the auditing process to become automated and easily applied to future elections, congressional and beyond. 
 
-## Election-Audit Results:
+## Election Audit Results:
+
 ### Vote Breakdown:
 
 The results of the anaylsis were as follows:
@@ -307,6 +308,6 @@ with open(file_to_save, "w") as txt_file:
     # Save the winning candidate's name to the text file
     txt_file.write(winning_candidate_summary)
 ```
-## Election-Audit Summary:
+## Election Audit Summary:
 
-In conclusion, the script is an efficient and logical way to determine that Diana DeGette won the election with 272,892 votes and that Denver County had the largest voter turnout (306,055 votes). With a few modifications, this script can be used to anaylize the results of any election, as the list of candidates and the voting districts are built by the script itself while reading the data sheet supplied to it. For exmaple, for a mayoral election the script would only have to change from referencing county data to referencing city voting districts by changing which .csv is loaded into the opening lines and making sure that the voting district and candidate name has the same index in the new .csv. Furthermore, the script can be scaled up by adding more identical decision statements within the code. In a nationwide election, for example, in addition to having county data, another decision statement could be added to build a dictionary of the number of votes for each state. The power of Python also makes it possible to anaylze the vote counts in different ways, for example, to find the two candidates with the most votes, as may be necessary in a primary race, one would only need to alter the final decision statement at the end of the script. 
+In conclusion, the script is an efficient and logical way to determine that Diana DeGette won the election with 272,892 votes and that Denver County had the largest voter turnout (306,055 votes). With a few modifications, this script can be used to analyze the results of any election, as the list of candidates and the voting districts are built by the script itself while reading the data sheet supplied to it. For example, for a mayoral election the script would only have to change from referencing county data to referencing city voting districts by changing which .csv is loaded into the opening lines and making sure that the voting district and candidate name has the same index in the new .csv. Furthermore, the script can be scaled up by adding more identical decision statements within the code. In a nationwide election, for example, in addition to having county data, another decision statement could be added to build a dictionary of the number of votes for each state. The power of Python also makes it possible to analyze the vote counts in different ways, for example, to find the two candidates with the most votes, as may be necessary in a primary race, one would only need to alter the final decision statement at the end of the script. 
